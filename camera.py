@@ -2,6 +2,7 @@ import time
 import io
 import threading
 import picamera
+import os
 
 
 class Camera:
@@ -26,8 +27,10 @@ class Camera:
         self.initialize()
         return self.frame
     
-    def capture(self, filename='foo.jpg'):
+    def capture(self, filename, filepath=None):
         self.get_frame()
+        if filepath:
+            filename = os.path.join(filepath, filename)
         with open(filename, 'wb') as binary_file:
             binary_file.write(self.frame)
 

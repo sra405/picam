@@ -10,4 +10,4 @@ RUN pip install --no-cache-dir --upgrade pip && \
 COPY . .
 
 # non-prod command for flask
-CMD [ "python", "./src/app.py" ]
+CMD [ "python", "./app.py" ]
